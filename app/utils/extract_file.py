@@ -10,7 +10,7 @@ from app.prompts import v1
 load_dotenv()
 
 
-stars_data = pd.read_excel("tables.xlsx")
+# stars_data = pd.read_excel("tables.xlsx")
 
 
 def get_credentials():
