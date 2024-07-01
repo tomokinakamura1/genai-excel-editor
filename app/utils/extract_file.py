@@ -6,6 +6,7 @@ from pptx import Presentation
 from dotenv import load_dotenv
 from app.prompts import v1
 
+
 load_dotenv()
 
 
@@ -177,3 +178,7 @@ def total_pipeline_process(file_path):
     slide = ppt.slides[0]
     res = extract_table_from_slides(slide)
     return res
+
+def read_table(file_path):
+    df=pd.read_csv(file_path)
+    return df

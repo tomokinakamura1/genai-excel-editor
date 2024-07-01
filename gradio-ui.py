@@ -19,25 +19,31 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     gr.Image(BANNER_PATH, show_label=False)
     
     gr.Markdown(
-        "<center><span style='font-size: 26px; font-weight: bold;'>1 Pager to STARS Content Generator</span></center>") 
+        "<center><span style='font-size: 26px; font-weight: bold;'>Entity extractor</span></center>") 
     
     file_upload = gr.File(label="Upload Input Excel")
-    
-    input_table=gr.DataFrame(file_upload)
-    
-    analyze_button = gr.Button("Analyze & Generate Content", elem_id="custom-button1-id",
+    analyze_button = gr.Button("Generate", elem_id="custom-button1-id",
                                        elem_classes=["custom-button1-class"])
     
+    input_table = gr.DataFrame(headers=None)
+
+    prompt=gr.TextArea(label="input_prompt")
+
+    
+    
+    
     gr.Markdown(
-        "<left><span style='font-size: 26px; font-weight: bold;'>Generated Output</span></left>")  
+        "<left><span style='font-size: 26px; font-weight: bold;'>Generated Output</span></left>")
     
-    output_table = gr.DataFrame(headers=None)
+    output=gr.TextArea(label="Generated Output")
     
-    analyze_button.click(extract_file.total_pipeline_process, inputs=file_upload, outputs=output_table)
+    
+    
+    analyze_button.click(extract_file.read_table, inputs=file_upload, outputs=input_table)
     
     download_button = gr.Button("Download Content", elem_id="custom-button1-id",
                                        elem_classes=["custom-button1-class"])    
-    download_button.click(download_content, inputs=output_table, outputs=gr.File())
+    download_button.click(download_content, inputs=input_table, outputs=gr.File())
 
 
 demo.launch(server_port=8080)
