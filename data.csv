@@ -1,0 +1,14 @@
+key,value
+Customer Problem:,"They have 10 years of fault trouble analysis (FTA) tree to analyze the root cause of car trouble. But, those tree are contained in Power Point. So, it’s hard for junior engineer to find the appropriate document and list up all possible root cause from the tree. 
+
+We proposed the extraction method of tree in original algorithm and to use watsonx.data to search the tree database efficiently."
+IBM Portfolio Products Used:,"watsonx.data
+watsonx Orchestrate"
+IBM Team Engaged:,"Market: Japan
+CE Leader: Toru Nakayama (FLM)
+Workshop: Not conducted
+CE AI Engineers: Ryohei Fujii
+IBM Consulting Included: Yes. The client’s department is quality-related one. IBM-C engaged in the other quality AI system in the past."
+Outcome:,"The client struggled to digitalize their existing tree data in PowerPoint, and we solve this problem in this Pilot. They’ve highly satisfied with our proposal because their FTA assets have been stored for 10 years. FTA information is very important for analyzing the root cause of car trouble, so this is key factor to start the digital transformation of their quality area. 
+Currently, they took 1,200 days from they find the issue and until they get the action, and cars which has a potential trouble continue to be manufactured. They aims to reduce this time to 600 days. The economic impact is very huge if we can reduce the amount of potential-risk car for the rest of 600 days."
+Next Steps:,"They’ve satisfied with our result, and they talked about their all strategy of quality DX. In addition, they planned to start PoC from this July, and asked us to propose our plan which collaborate with the client. Currently, CE and IBM-C team consider the next PoC plan."
