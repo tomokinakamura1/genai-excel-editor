@@ -24,7 +24,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     
     ###input file #####
     file_upload = gr.File(label="Upload Input Excel")
-    analyze_button = gr.Button("Review", elem_id="custom-button1-id",
+    review_button = gr.Button("Review", elem_id="custom-button1-id",
                                        elem_classes=["custom-button1-class"])
     
     input_table = gr.DataFrame(headers=None)
@@ -33,7 +33,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     prompt=gr.TextArea(label="input_prompt")
 
     
-    output_button = gr.Button("Extract Entities", elem_id="custom-button1-id",
+    extract_entity = gr.Button("Extract Entities", elem_id="custom-button1-id",
                                        elem_classes=["custom-button1-class"])
     
     gr.Markdown(
@@ -44,9 +44,9 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     output_table=gr.DataFrame(headers=None)
     
     
-    analyze_button.click(extract_file.read_table, inputs=file_upload, outputs=input_table)
+    review_button.click(extract_file.read_table, inputs=file_upload, outputs=input_table)
     
-    output_button.click(extract_file.extract_entity, inputs=[prompt,file_upload], outputs=output)
+    extract_entity.click(extract_file.extract_entity, inputs=[prompt,file_upload], outputs=output)
 
 
     download_button = gr.Button("Download Content", elem_id="custom-button1-id",
