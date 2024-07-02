@@ -1,0 +1,11 @@
+﻿No,Status,Date,Maintenance Description - Free Text,Location
+1,Complete,28/06/24,CHM-001-R Reactor Valve Pressure Insufficiency Correction,L13RS
+2,Complete,28/06/24,CHM-002-C Compressor Vibration Anomaly Repair,L14RS
+3,Complete,28/06/24,CHM-003-T Turbine Cooling System Insufficiency Response,L15RS
+4,Complete,28/06/24,CHM-004-P Pump Seal Leak Repair,L16RS
+5,In Progress,28/06/24,CHM-005-V Vacuum Unit Insufficiency Correction,L17RS
+6,Complete,28/06/24,CHM-006-S Distillation Tower Temperature Sensor Failure Replacement,L18RS
+7,Complete,26/06/24,CHM-007-L Roller Bearing Wear Repair,L19RS
+8,In Progress,26/06/24,CHM-008-H Heat Exchanger Heat Pump Failure Repair,L20RS
+9,Complete,26/06/24,CHM-009-M Motor Start Failure Power Unit Replacement,L21RS
+10,Complete,26/06/24,CHM-010-G Gas Detector Sensitivity Adjustment,L22RS
