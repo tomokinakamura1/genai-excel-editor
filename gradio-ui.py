@@ -30,7 +30,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     input_table = gr.DataFrame(headers=None)
 
     ####Entity extraction#######
-    prompt=gr.TextArea(label="input_prompt")
+    prompt=gr.TextArea(label="input_prompt",placeholder="please add underscore instead of spaces in column names")
 
     
     extract_entity = gr.Button("Extract Entities", elem_id="custom-button1-id",
@@ -46,7 +46,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     
     review_button.click(extract_file.read_table, inputs=file_upload, outputs=input_table)
     
-    extract_entity.click(extract_file.extract_entity, inputs=[prompt,file_upload], outputs=output)
+    extract_entity.click(extract_file.extract_entity, inputs=[prompt,file_upload], outputs=[output,output_table])
 
 
     download_button = gr.Button("Download Content", elem_id="custom-button1-id",

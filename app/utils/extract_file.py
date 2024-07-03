@@ -3,7 +3,7 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from app.prompts import v1
-
+import re
 
 load_dotenv()
 
@@ -159,9 +159,28 @@ def entity(input_prompt,df):
     return final_response
 
 def convert_to_df(output):
-    # df=pd.DataFrame(output)
-    # return df
-    pass
+    # Extract the lines containing the data
+    data_section = output.split("Here is the output dataframe with the requested information:")[1].strip()
+    lines = data_section.split('\n')
+
+    # Initialize variables
+    header = None
+    data = []
+
+    # Process each line
+    for line in lines:
+        # Use regex to split by one or more spaces outside of quotes
+        values = re.split(r'\s+(?=(?:[^"]*"[^"]*")*[^"]*$)', line.strip())
+        values = [v.strip('"') for v in values]  # Remove quotes around values
+        if header is None:
+            header = values
+        else:
+            data.append(values)
+
+    # Create a DataFrame
+    df = pd.DataFrame(data, columns=header)
+    return df
+
 
 def read_table(file_path):
     df=pd.read_csv(file_path)
@@ -172,4 +191,4 @@ def extract_entity(input_prompt,file_path):
     df = read_table(file_path)
     output=entity(input_prompt,df)
     output_table=convert_to_df(output)
-    return output
+    return output,output_table
