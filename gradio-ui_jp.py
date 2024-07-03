@@ -17,11 +17,11 @@ def download_content(df):
 with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     gr.Image(BANNER_PATH, show_label=False)
     
-    ##heading###
+    ##Header###
     gr.Markdown(
         "<center><span style='font-size: 26px; font-weight: bold;'>Entity extractor</span></center>") 
     
-    ###input file #####
+    ###input file#####
     file_upload = gr.File(label="入力CSVをアップロード")
     review_button = gr.Button("総説", elem_id="custom-button1-id",
                                        elem_classes=["custom-button1-class"])
