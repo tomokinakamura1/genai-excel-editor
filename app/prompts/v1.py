@@ -12,7 +12,7 @@ INSTRUCTIONS:
 1. Use the input Dataframe metadata information and construct answers for the question provided.
 2. Your output must be exclusively in JSON format. Do not include any text other than the JSON output.
 3. Append the <end> token after the JSON output.
-4. while providing output please follow the correct format of JSON
+4. while providing output please follow the correct format of JSON in which everything should be contained under equipement_info key
 
 RULES:
 1. Enhance the descriptions while staying true to the context provided by the original values.

@@ -1,11 +1,11 @@
-Equipment ID,Equipment Name
-CHM-001-R,Reactor Valve
-CHM-002-C,Compressor
-CHM-003-T,Turbine
-CHM-004-P,Pump
-CHM-005-V,Vacuum Unit
-CHM-006-S,Distillation Tower Temperature Sensor
-CHM-007-L,Roller Bearing
-CHM-008-H,Heat Exchanger
-CHM-009-M,Motor
-CHM-010-G,Gas Detector
+_id,equipment_name
+CHM-001-R,リアクターバルブ
+CHM-002-C,コンプレッサー
+CHM-003-T,タービン冷却システム
+CHM-004-P,ポンプシール
+CHM-005-V,真空ユニット
+CHM-006-S,蒸留塔
+CHM-007-L,ローラーベアリング
+CHM-008-H,熱交換器
+CHM-009-M,モーター
+CHM-010-G,ガス検知器
