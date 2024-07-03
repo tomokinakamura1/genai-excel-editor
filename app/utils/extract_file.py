@@ -3,10 +3,9 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from app.prompts import v1
-import re
+import json
 
 load_dotenv()
-
 
 def get_credentials():
     return {"url": os.getenv("IBM_CLOUD_URL"), "apikey": os.getenv("IBM_CLOUD_API_KEY")}
@@ -159,26 +158,19 @@ def entity(input_prompt,df):
     return final_response
 
 def convert_to_df(output):
-    # Extract the lines containing the data
-    data_section = output.split("Here is the output dataframe with the requested information:")[1].strip()
-    lines = data_section.split('\n')
+    # Extract the JSON part from the input
+    json_start = output.find('{')
+    json_end = output.rfind('}') + 1
+    json_str = output[json_start:json_end].strip()
 
-    # Initialize variables
-    header = None
-    data = []
+    # Convert JSON string to Python dictionary
+    data_dict = json.loads(json_str)
 
-    # Process each line
-    for line in lines:
-        # Use regex to split by one or more spaces outside of quotes
-        values = re.split(r'\s+(?=(?:[^"]*"[^"]*")*[^"]*$)', line.strip())
-        values = [v.strip('"') for v in values]  # Remove quotes around values
-        if header is None:
-            header = values
-        else:
-            data.append(values)
+    # Extract the 'equipment_info' list from the dictionary
+    equipment_info = data_dict['equipment_info']
 
-    # Create a DataFrame
-    df = pd.DataFrame(data, columns=header)
+    # Create DataFrame from the list of dictionaries
+    df = pd.DataFrame(equipment_info)
     return df
 
 
