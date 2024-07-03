@@ -14,7 +14,6 @@ def download_content(df):
     df.to_csv('output.csv', index=False)
     return 'output.csv'
 
-
 with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
     gr.Image(BANNER_PATH, show_label=False)
     
