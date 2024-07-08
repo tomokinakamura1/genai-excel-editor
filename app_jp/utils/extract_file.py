@@ -68,7 +68,9 @@ def read_table(file_path):
 
 
 def extract_entity(input_prompt,file_path):
-    df = read_table(file_path)
+    # df = read_table(file_path)
+    df=file_path
     output=entity(input_prompt,df)
-    output_table=convert_to_df(output)
-    return output,output_table
+    output_df=convert_to_df(output)
+    final_df=pd.concat([df, output_df], axis=1)
+    return output,final_df
