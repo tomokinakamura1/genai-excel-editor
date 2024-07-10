@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from app.prompts import v1
 import json
-import re
+import ast
 
 load_dotenv()
 
@@ -94,17 +94,19 @@ def extract_entity_line_by_line(input_prompt,file_path):
         yield final_response    
 
 def get_table(final_response,file_path):
-    extracted_json_objects = []
+    final_response = ast.literal_eval(final_response)
+    print(final_response)
+    json_strings = [s.split(': ', 1)[1] for s in final_response]
+    # print(json_strings)
+    data = []
+    for js in json_strings:
+        json_obj = json.loads(js)
+        key = list(json_obj.keys())[0]  
+        data.append(json_obj[key])
 
-    # Loop through each string in the data list
-    for string in final_response:
-        # Remove the unwanted text
-        cleaned_string = string.replace("Here is the output JSON with the requested information: \n", "")
-        # Parse the cleaned string as JSON and append it to the list
-        extracted_json_objects.append(json.loads(cleaned_string))
-
-    combined_json_output = json.dumps(extracted_json_objects, indent=4, ensure_ascii=False)
-    df=convert_to_df(combined_json_output)
+    # print(data)
+    df = pd.DataFrame(data)
+    # df=convert_to_df(data)
 
     final_df=pd.concat([file_path, df], axis=1)
     return final_df

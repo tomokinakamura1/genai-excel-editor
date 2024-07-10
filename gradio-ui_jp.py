@@ -4,6 +4,7 @@ import os
 from app_jp.template.css import CUSTOM_CSS
 from app_jp.utils import extract_file
 
+
 BANNER_PATH = os.path.join(os.getcwd(), "app/images/banner.jpg")
 
 def analyze_file(file):
@@ -117,7 +118,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
         
         extract_entity.click(extract_file.extract_entity_line_by_line, inputs=[prompt,column_output], outputs=output)
 
-        get_dataframe.click(extract_file.get_table, inputs=[output,file_upload], outputs=output_table)
+        get_dataframe.click(extract_file.get_table, inputs=[output,input_table], outputs=output_table)
         ####Download Utils ####
         download_button = gr.Button("ダウンロード", elem_id="custom-button1-id",
                                         elem_classes=["custom-button1-class"])    
