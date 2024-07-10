@@ -91,28 +91,20 @@ def extract_entity_line_by_line(input_prompt,file_path):
         # print(response)
         print(intermediate_respoonse)
         final_response.append(intermediate_respoonse)
-        yield final_response
-    
-    
-
-# Function to extract JSON content
-def extract_json_from_string(json_str):
-    match = re.search(r'{.*}', json_str, re.DOTALL)
-    if match:
-        return match.group(0)
-    return None
+        yield final_response    
 
 def get_table(final_response,file_path):
-    print(final_response)
-    combined_json = []
+    extracted_json_objects = []
 
-    for json_str in final_response:
-        json_content = extract_json_from_string(json_str)
-        if json_content:
-            json_obj = json.loads(json_content)
-            combined_json.append(json_obj)
+# Loop through each string in the data list
+    for string in final_response:
+        # Remove the unwanted text
+        cleaned_string = string.replace("Here is the output JSON with the requested information: \n", "")
+        # Parse the cleaned string as JSON and append it to the list
+        extracted_json_objects.append(json.loads(cleaned_string))
 
-    combined_json_str = json.dumps(combined_json, indent=2, ensure_ascii=False)
-    df=convert_to_df(combined_json_str)
+    combined_json_output = json.dumps(extracted_json_objects, indent=4, ensure_ascii=False)
+    df=convert_to_df(combined_json_output)
+
     final_df=pd.concat([file_path, df], axis=1)
     return final_df

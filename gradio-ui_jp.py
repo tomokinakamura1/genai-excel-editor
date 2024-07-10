@@ -107,7 +107,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=CUSTOM_CSS) as demo:
         
         output=gr.TextArea(label="生成された出力")
         
-        get_dataframe=gr.Button("get_dataframe", elem_id="custom-button",elem_classes=["custom-button1-class"])
+        get_dataframe=gr.Button("get_dataframe", elem_id="custom-button1-id",elem_classes=["custom-button1-class"])
         
         output_table=gr.DataFrame(headers=None)
         
