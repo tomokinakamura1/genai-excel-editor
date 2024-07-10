@@ -96,7 +96,7 @@ def extract_entity_line_by_line(input_prompt,file_path):
 def get_table(final_response,file_path):
     extracted_json_objects = []
 
-# Loop through each string in the data list
+    # Loop through each string in the data list
     for string in final_response:
         # Remove the unwanted text
         cleaned_string = string.replace("Here is the output JSON with the requested information: \n", "")
