@@ -15,7 +15,9 @@ pip install -r requirements.txt
 In the project directory, you can run:
 
 ```bash
-python gradio-ui.py
+python gradio-ui_jp.py
 ```
-
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+Please refer [prompt][app_jp/prompts/v1.py] to make changes in the the prmopt if needed.
+
