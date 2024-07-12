@@ -19,5 +19,4 @@ python gradio-ui_jp.py
 ```
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
-Please refer [app_jp/prompts/v1.py](prompt) to make changes in the the prmopt if needed.
 
