@@ -1,4 +1,18 @@
-# ISUZU Spss
+# 簡易ツールのインストール方法
+
+## 前提条件
+Gitがインストールされていることを確認してください。
+Gitがインストールされていない場合は、[Gitの公式サイト](https://git-scm.com/book/ja/v2/%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%82%8B-Git%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)からダウンロードしてインストールできます。
+
+## リポジトリのクローン
+作業ディレクトリに本リポジトリをクローンします。
+例えば、デスクトップに新しいフォルダを作成してそこにクローンする場合は以下のようにします：
+
+```
+mkdir -p ~/Desktop/MyProject
+cd ~/Desktop/MyProject
+git clone https://github.com/tomokinakamura1/genai-excel-editor.git
+```
 
 ## 依存関係のインストール
 
