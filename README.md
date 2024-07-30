@@ -1,8 +1,8 @@
 # ISUZU Spss
 
-## Installing Dependencies
+## 依存関係のインストール
 
-Make sure you are using python3.11.
+Python 3.11 を使用していることを確認してください。
 
 ```bash
 python -m venv .venv
@@ -10,13 +10,21 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## How to run
+## 環境変数の準備
 
-In the project directory, you can run:
+一時的な環境ファイルをコピーして名前を変更します：
+
+```bash
+cp .env_temp .env
+```
+`.env` ファイルに PROJECT_ID、IBM_CLOUD_URL と IBM_CLOUD_API_KEY を追加してください。
+
+## 実行方法
+
+プロジェクトディレクトリで以下を実行できます：
 
 ```bash
 python gradio-ui_jp.py
 ```
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
-
+ブラウザで [http://localhost:8080](http://localhost:8080) を開いて表示します。
 
